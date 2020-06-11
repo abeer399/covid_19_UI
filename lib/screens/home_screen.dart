@@ -4,6 +4,7 @@ import 'package:covid19/data/data.dart';
 import 'package:covid19/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_country_picker/flutter_country_picker.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,9 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
- // String _country = "Pak";
-
+  Country _selectedCountry;
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +46,37 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("COVID-19",style: TextStyle(
                   color: Colors.white,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),),
-                /*CountryDropdowm(
-                  countries: ['CN','PAK','IN','UK','USA','TUR'],
-                  country: _country,
-                  onChanged: (val)=> setState(()=> _country = val),
-                )*/
+                Container(
+                  height: 40,
+                  width: 130,
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.white
+                  ),
+                  child: CountryPicker(
+                    onChanged: (Country country){
+                      setState(() {
+                        _selectedCountry = country;
+                      });
+                    },
+                    selectedCountry: _selectedCountry,
+                    showFlag: true,
+                    showName: true,
+                    nameTextStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                )
               ],
             ),
             SizedBox(height: screenHeight*0.03,),

@@ -13,7 +13,7 @@ class CovidBarChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 370,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -31,7 +31,7 @@ class CovidBarChart extends StatelessWidget {
             ),),
           ),
           Container(
-            width: MediaQuery.of(context).size.width * .85,
+            width: MediaQuery.of(context).size.width * 0.85,
             child: BarChart(
               BarChartData(
                 alignment: BarChartAlignment.spaceAround,
@@ -47,19 +47,19 @@ class CovidBarChart extends StatelessWidget {
                     getTitles: (double values){
                       switch(values.toInt()){
                         case 0:
-                          return "May 31";
+                          return "May\n31";
                         case 1:
-                          return "June 1";
+                          return "June\n1";
                         case 2:
-                          return "June 2";
+                          return "June\n2";
                         case 3:
-                          return "June 3";
+                          return "June\n3";
                         case 4:
-                          return "June 4";
+                          return "June\n4";
                         case 5:
-                          return "June 5";
+                          return "June\n5";
                         case 6:
-                          return "June 6";
+                          return "June\n6";
                         default:
                           return "";
                       }
